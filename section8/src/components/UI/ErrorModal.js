@@ -5,17 +5,20 @@ import classes from "./ErrorModal.module.css";
 
 const ErrorModal = (props) => {
   return (
-    <Card>
-      <header className={classes.modal}>
-        <h2>{props.title}</h2>
-      </header>
-      <div className={classes.content}>
-        <p>{props.message}</p>
-      </div>
-      <footer className={classes.actions}>
-        <Button>OKay</Button>
-      </footer>
-    </Card>
+    <div>
+      <div className={classes.backdrop} onClick={props.onConfirm} />
+      <Card  className={classes.modal}>
+        <header className={classes.header}>
+          <h2>{props.title}</h2>
+        </header>
+        <div className={classes.content}>
+          <p>{props.message}</p>
+        </div>
+        <footer className={classes.actions}>
+          <Button onClick={props.onConfirm}>OKay</Button>
+        </footer>
+      </Card>
+    </div>
   );
 };
 
